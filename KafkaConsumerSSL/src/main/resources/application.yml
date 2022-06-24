@@ -1,0 +1,18 @@
+server:
+  port: 8082
+spring:
+  kafka:   
+    consumer:                    
+     auto-offset-reset: earliest
+     enable-auto-commit: true
+     bootstrap-servers: localhost:9092
+     group-id: bob-group           
+     key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+     value-deserializer: org.apache.kafka.common.serialization.StringDeserializer 
+     properties:
+         sasl.mechanism: PLAIN
+         security.protocol: SASL_SSL
+         ssl:
+            protocol: SSL          
+            trust-store-location: classpath:/ssl/kafka.client.truststore.jks
+            trust-store-password: tester    
